@@ -30,7 +30,5 @@
 
     <mappers>
         <package name="com.shaoyx.mybatis.mapper"/>
-        <!--<mapper resource="com.shaoyx.mybatis.mapper.SelectMapper"/>-->
-        <!--<mapper resource="com.shaoyx.mybatis.mapper.UserMapper"/>-->
     </mappers>
 </configuration>

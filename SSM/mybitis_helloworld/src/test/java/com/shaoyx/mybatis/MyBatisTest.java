@@ -57,6 +57,7 @@ public class MyBatisTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         Integer integer = mapper.deleteUser();
         sqlSession.close();
+
     }
 
     @Test
