@@ -9,6 +9,11 @@
 	reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?
 	-->
     <properties resource="jdbc.properties"/>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
 
     <typeAliases>
         <!--以包为单位，将包下所有的类型设置默认的类型别名，即类名且不区分大小写-->
@@ -30,7 +35,5 @@
 
     <mappers>
         <package name="com.shaoyx.com.shaoyx.mybatis.mapper"/>
-        <!--<mapper resource="SelectMapper"/>-->
-        <!--<mapper resource="UserMapper"/>-->
     </mappers>
 </configuration>

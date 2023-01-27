@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//com.shaoyx.mybatis.org//DTD Config 3.0//EN"
-        "http://com.shaoyx.mybatis.org/dtd/com.shaoyx.mybatis-3-config.dtd">
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--
 	核心配置文件中的标签必须按照固定的顺序：
@@ -9,7 +9,11 @@
 	reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?
 	-->
     <properties resource="jdbc.properties"/>
-
+    <!--全局配置-->
+    <settings>
+        <!--开启字段与属性驼峰映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
     <typeAliases>
         <!--以包为单位，将包下所有的类型设置默认的类型别名，即类名且不区分大小写-->
         <package name="com.shaoyx.com.shaoyx.mybatis.pojo"/>
@@ -29,8 +33,7 @@
     </environments>
 
     <mappers>
-        <package name="com.shaoyx.com.shaoyx.mybatis.mapper"/>
-        <!--<mapper resource="SelectMapper"/>-->
-        <!--<mapper resource="UserMapper"/>-->
+        <package name="com.shaoyx.mybatis.mapper"/>
+        <!--<mapper class="com.shaoyx.mybatis.mapper.EmpMapper"/>-->
     </mappers>
 </configuration>

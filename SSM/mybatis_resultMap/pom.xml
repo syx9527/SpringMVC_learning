@@ -4,17 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.shaoyx.com.shaoyx.mybatis</groupId>
-    <artifactId>pabatis_paramenter</artifactId>
+    <groupId>com.shaoyx.com.shaoyx.mybatis</groupId>
+    <artifactId>mybatis_resultMap</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+
     <properties>
         <!--编译编码-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-
     </properties>
+    <build>
+        <plugins>
+
+        </plugins>
+    </build>
+    <packaging>jar</packaging>
+
 
     <dependencies>
         <dependency>
@@ -23,7 +27,6 @@
             <version>1.18.10</version>
         </dependency>
 
-        <!-- Mybatis核心 -->
         <!-- Mybatis核心 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -36,13 +39,6 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2 -->
-        <!--<dependency>-->
-        <!--	<groupId>org.springframework.boot</groupId>-->
-        <!--	<artifactId>spring-boot-starter-log4j2</artifactId>-->
-        <!--	<version>3.0.2</version>-->
-        <!--</dependency>-->
-
         <!-- junit测试 -->
         <dependency>
             <groupId>junit</groupId>
@@ -57,7 +53,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.20</version>
         </dependency>
-
     </dependencies>
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+		PUBLIC "-//com.shaoyx.mybatis.org//DTD Config 3.0//EN"
+		"http://com.shaoyx.mybatis.org/dtd/com.shaoyx.mybatis-3-config.dtd">
 <configuration>
 	<!--
 	核心配置文件中的标签必须按照固定的顺序：
@@ -26,7 +26,7 @@
 		<!--<typeAlias type="com.shaoyx.User"/>-->
 		
 		<!--以包为单位，将包下所有的类型设置默认的类型别名，即类名且不区分大小写-->
-		<package name="com.shaoyx.mybatis.pojo"/>
+		<package name="com.shaoyx.com.shaoyx.mybatis.pojo"/>
 	</typeAliases>
 	
 	
@@ -101,6 +101,6 @@
 			   1、mapper接口所在的包要和映射文件所在的包一致
 			   2、mapper接口要和映射文件的名字一致
 		  -->
-		<package name="com.shaoyx.mybatis.mapper"/>
+		<package name="com.shaoyx.com.shaoyx.mybatis.mapper"/>
 	</mappers>
 </configuration>

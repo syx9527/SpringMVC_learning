@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shaoyx.mybatis.mapper.CacheMapper">
+  <resultMap id="BaseResultMap" type="com.shaoyx.mybatis.pojo.Cache">
+    <!--@mbg.generated-->
+    <!--@Table t_emp-->
+    <id column="emp_id" jdbcType="INTEGER" property="empId" />
+    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    emp_id, emp_name, age, gender
+  </sql>
+  <insert id="insert" keyColumn="emp_id" keyProperty="empId" parameterType="com.shaoyx.mybatis.pojo.Cache" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_emp (emp_name, age, gender
+      )
+    values (#{empName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{gender,jdbcType=CHAR}
+      )
+  </insert>
+  <select id="selectByAll" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_emp
+        <where>
+            <if test="empId != null">
+                and emp_id=#{empId,jdbcType=INTEGER}
+            </if>
+            <if test="empName != null">
+                and emp_name=#{empName,jdbcType=VARCHAR}
+            </if>
+            <if test="age != null">
+                and age=#{age,jdbcType=INTEGER}
+            </if>
+            <if test="gender != null">
+                and gender=#{gender,jdbcType=CHAR}
+            </if>
+        </where>
+    </select>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update t_emp
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="emp_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when emp_id = #{item.empId,jdbcType=INTEGER} then #{item.empName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="age = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when emp_id = #{item.empId,jdbcType=INTEGER} then #{item.age,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="gender = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when emp_id = #{item.empId,jdbcType=INTEGER} then #{item.gender,jdbcType=CHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where emp_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.empId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="emp_id" keyProperty="empId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_emp
+    (emp_name, age, gender)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.empName,jdbcType=VARCHAR}, #{item.age,jdbcType=INTEGER}, #{item.gender,jdbcType=CHAR}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="emp_id" keyProperty="empId" parameterType="com.shaoyx.mybatis.pojo.Cache" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_emp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        emp_id,
+      </if>
+      emp_name,
+      age,
+      gender,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        #{empId,jdbcType=INTEGER},
+      </if>
+      #{empName,jdbcType=VARCHAR},
+      #{age,jdbcType=INTEGER},
+      #{gender,jdbcType=CHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=INTEGER},
+      </if>
+      emp_name = #{empName,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=CHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="emp_id" keyProperty="empId" parameterType="com.shaoyx.mybatis.pojo.Cache" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_emp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=CHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2023-01-27-->
+  <select id="selectOneByEmpId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_emp
+        where emp_id=#{empId,jdbcType=INTEGER}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2023-01-27-->
+  <update id="updateAgeByEmpId">
+    update t_emp
+    set age=#{updatedAge,jdbcType=INTEGER}
+    where emp_id=#{empId,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

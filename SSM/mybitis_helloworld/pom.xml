@@ -3,8 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<groupId>com.shaoyx.mybatis</groupId>
+	<properties>
+		<!--编译编码-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<groupId>com.shaoyx.com.shaoyx.mybatis</groupId>
 	<artifactId>mybitis_helloworld</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<build>
@@ -23,10 +26,11 @@
 		</dependency>
 		
 		<!-- Mybatis核心 -->
+		<!-- Mybatis核心 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.5.7</version>
+			<version>3.5.6</version>
 		</dependency>
 		<!-- log4j日志 -->
 		<dependency>
